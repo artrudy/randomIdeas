@@ -1,13 +1,30 @@
 const express = require("express");
+const router = express.Router();
+const Idea = require("../models/Idea");
 
-const router = express.Router;
+const ideas = [
+  {
+    id: 1,
+    text: "Positive NewsLetter, a newsletter that only shares positive, uplifting news",
+    tag: "Technology",
+    username: "Tonystark",
+    date: "2022-01-02",
+  },
+  {
+    id: 2,
+    text: "Milk cartons that turn a different color the older that your milk is getting",
+    tag: "Inventions",
+    username: "SteveRogers",
+    date: "2022-01-02",
+  },
+];
 
 //gett all ideas
-app.get("/api/ideas", (req, res) => {
+router.get("/api/ideas", (req, res) => {
   res.json({ success: true, data: ideas });
 });
 
-//gett  idea
+//get all idea
 router.get("/", (req, res) => {
   res.json({ success: true, data: ideas });
 });
