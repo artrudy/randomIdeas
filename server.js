@@ -1,3 +1,5 @@
+const path = require("path");
+
 const express = require("express");
 
 require("dotenv").config();
@@ -9,6 +11,9 @@ const connectDB = require("./config/db");
 connectDB();
 
 const app = express();
+
+//static folder
+app.use(express.static(path.join(__dirname, "public")));
 
 //body parer middleware
 
