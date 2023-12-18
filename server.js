@@ -1,4 +1,5 @@
 const path = require("path");
+const cors = require("cors");
 
 const express = require("express");
 
@@ -19,6 +20,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//cors middleware
+app.use(
+  cors({
+    origin: ["http://localhost:5000", "http://localhost:3000"],
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcom to th RandomeIdeas API!" });
